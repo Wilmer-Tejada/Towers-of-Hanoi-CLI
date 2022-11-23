@@ -41,7 +41,32 @@ def get_player_moves():
 def display_towers(towers):
     """Display the three towers with their disks."""
 
-    pass
+    # Display the three towers:
+    for level in range(NUMBER_OF_HANOI_DISKS, -1, -1):
+        for tower in (towers["A"], towers["B"], towers["C"]):
+            if level >= len(tower):
+                display_disk(0)  # Display the bare pole with no disk.
+            else:
+                display_disk(tower[level])  # Display the disk.
+        print("")
+
+    # Display the tower labels A, B, and C:
+    empty_space = " " * (NUMBER_OF_HANOI_DISKS)
+    print("{0} A{0}{0} B{0}{0} C\n".format(empty_space))
+
+
+def display_disk(width):
+    """Display a disk of the given width. A width of 0 means no disk."""
+    empty_space = " " * (NUMBER_OF_HANOI_DISKS - width)
+
+    if width == 0:
+        # Display a pole segment without a disk:
+        print(f"{empty_space}||{empty_space}", end="")
+    else:
+        # Display the disk:
+        disk = "#" * width
+        number_label = str(width).rjust(2, "_")
+        print(f"{empty_space}{disk}{number_label}{disk}{empty_space}", end="")
 
 
 if __name__ == '__main__':
