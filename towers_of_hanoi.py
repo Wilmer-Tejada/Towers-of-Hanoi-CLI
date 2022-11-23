@@ -6,7 +6,11 @@ SOLVED_TOWER = [i for i in range(NUMBER_OF_HANOI_DISKS, 0, -1)]
 
 def main():
     """Tower of Hanoi game that displays in the Terminal."""
-
+    print("""
+    The rules of this game are simple:
+     - In order to win, move all of the disks into either B or C pole. 
+     - A disk cannot be stacked on top of another disk with a smaller value. 
+    """)
     towers = {"A": SOLVED_TOWER[:], "B": [], "C": []}
 
     while True:
